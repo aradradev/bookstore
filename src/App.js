@@ -1,10 +1,15 @@
-import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import CategoriesPage from './components/CategoriesPage';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello React</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/categories" element={<CategoriesPage />} />
+      </Routes>
+    </Router>
   );
 }
 
