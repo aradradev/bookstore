@@ -5,9 +5,6 @@ import BooksContainer from './BooksContainer';
 
 const HomePage = () => {
   const [books, setBooks] = useState([]);
-  // const handleAddBook = (title) => {
-  //   setBooks([...books, { title }]);
-  // };
   const handleDeleteBook = (index) => {
     setBooks(books.filter((_, i) => i !== index));
   };
