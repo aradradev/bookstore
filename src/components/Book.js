@@ -5,7 +5,7 @@ import React from 'react';
 const Book = ({ title, onDelete }) => (
   <div>
     <h3>{title}</h3>
-    <button onClick={onDelete}>Remove</button>
+    <button onClick={onDelete}>Delete</button>
   </div>
 );
 export default Book;
