@@ -11,11 +11,19 @@ body {
   background-color: #f5f5f5;
   padding: 0.8rem;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  background-color: #fff;
+  margin: 1rem auto;
+}
 .navLinks {
   display: flex;
   align-items: center;
   padding: 0.9rem;
-  margin: 2rem auto;
   flex-direction: row;
 }
 
@@ -36,5 +44,34 @@ body {
 .listItems li {
   list-style-type: none;
   margin: 0 0.8rem;
+  letter-spacing: 1.9px;
+}
+
+.mask {
+  background-color: var(--azure);
+  text-align: right;
+  float: right;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  padding: 0.9rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 2px 3px 2px #f5f5f5;
+}
+
+button {
   color: var(--black-Two);
+  background-color: var(--azure);
+  border: none;
+  outline: none;
+  padding: 0.2rem 0.4rem;
 }

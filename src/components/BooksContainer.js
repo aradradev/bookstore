@@ -1,59 +1,32 @@
-import React, { useState } from 'react';
-import BookList from './BookList';
+import React from 'react';
+import AddNewBook from './AddNewBook';
 
-const BooksContainer = () => {
-  const [selectedCategory, setSelectedCategory] = useState('Action');
-  const [books, setBooks] = useState([
-    { title: 'Book 1', category: 'Action' },
-    { title: 'Book 2', category: 'Adventure' },
-    { title: 'Book 3', category: 'Mystery' },
-  ]);
-  const [title, setTitle] = useState('');
-  const handleCategoryChange = (e) => {
-    setSelectedCategory(e.target.value);
-  };
-  const handleAddBook = () => {
-    if (title.trim()) {
-      const newBook = {
-        title: title.trim(),
-        category: selectedCategory,
-      };
-      setBooks([...books, newBook]);
-      setTitle('');
-    }
-  };
-  const handleDeleteBook = (index) => {
-    setBooks(books.filter((_, i) => i !== index));
-  };
-  return (
-    <div>
-      <h2>Books Container</h2>
-      <BookList books={books} onDelete={handleDeleteBook} />
-
-      <div>
-        <input
-          type="text"
-          id="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+const BooksContainer = () => (
+  <div className="booksContainer">
+    <div className="rows">
+      <div className="row">
+        <div className="cols-m1">
+          <p>Action</p>
+          <h3>The Hunger Game</h3>
+          <p>Author</p>
+          <button type="button">Comments</button>
+          <button type="button">Remove</button>
+          <button type="button">Edit</button>
+        </div>
+        <div className="cols-m2">
+          <div className="circle"> </div>
+          <p>64%</p>
+          <p>Completed</p>
+        </div>
+        <div className="cols-m3">
+          <p>Current Chapter</p>
+          <p>Chapter 17</p>
+          <button type="button">Update progress</button>
+        </div>
       </div>
-      <div>
-        <select
-          id="category"
-          value={selectedCategory}
-          onChange={handleCategoryChange}
-        >
-          <option value="Action">Action</option>
-          <option value="Adventure">Adventure</option>
-          <option value="Mystery">Mystery</option>
-          <option value="Romance">Romance</option>
-        </select>
-      </div>
-      <button type="button" onChange={handleAddBook}>
-        Add Book
-      </button>
     </div>
-  );
-};
+
+    <AddNewBook />
+  </div>
+);
 export default BooksContainer;
