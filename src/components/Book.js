@@ -2,7 +2,7 @@
 import React from 'react';
 
 const Book = ({
-  id, title, category, onDelete,
+  id, title, author, category, onDelete,
 }) => {
   const handleDelete = () => {
     onDelete(id);
@@ -12,12 +12,16 @@ const Book = ({
       <div className="cols-m1">
         <p>{category}</p>
         <h3>{title}</h3>
-        <p>Author</p>
-        <button type="button">Comments</button>
-        <button type="button" onClick={handleDelete}>
+        <p className="remove-btn">{author}</p>
+        <button className="remove-btn" type="button">
+          Comments
+        </button>
+        <button className="remove-btn" type="button" onClick={handleDelete}>
           Remove
         </button>
-        <button type="button">Edit</button>
+        <button className="remove-btn" type="button">
+          Edit
+        </button>
       </div>
       <div className="cols-m2">
         <div className="circle"> </div>
@@ -27,7 +31,9 @@ const Book = ({
       <div className="cols-m3">
         <p>Current Chapter</p>
         <p>Chapter 17</p>
-        <button type="button">Update Progress</button>
+        <button className="btn" type="button">
+          Update Progress
+        </button>
       </div>
     </div>
   );
