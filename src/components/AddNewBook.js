@@ -46,7 +46,7 @@ function AddNewBook({ onAdd }) {
             <option key={category}>{category}</option>
           ))}
         </select>
-        <button type="button">Add Book</button>
+        <button type="submit">Add Book</button>
       </form>
     </div>
   );
