@@ -1,15 +1,27 @@
-import React from 'react';
+/* eslint-disable camelcase */
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AddNewBook from './AddNewBook';
 import Book from './Book';
-import { addBook, removeBook } from '../redux/books/booksSlice';
+import {
+  addBook,
+  getBooksItems,
+  removeBook,
+  selectBooks,
+  selectIsLoading,
+} from '../redux/books/booksSlice';
 
 const BooksContainer = () => {
-  const books = useSelector((state) => state.books.books);
+  const books = useSelector(selectBooks);
+  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
-  const handleDeleteBook = (id) => {
-    dispatch(removeBook(id));
+  useEffect(() => {
+    dispatch(getBooksItems());
+  }, [dispatch]);
+
+  const handleDeleteBook = (item_id) => {
+    dispatch(removeBook(item_id));
   };
 
   const handleAddBook = (title, author, category) => {
@@ -22,6 +34,14 @@ const BooksContainer = () => {
     dispatch(addBook(newBook));
   };
 
+  if (isLoading) {
+    return (
+      <div className="loading">
+        <h3>Loading...</h3>
+      </div>
+    );
+  }
+
   return (
     <div className="booksContainer">
       <div className="rows">
@@ -30,9 +50,7 @@ const BooksContainer = () => {
             <Book
               key={book.item_id}
               id={book.item_id}
-              title={book.title}
-              author={book.author}
-              category={book.category}
+              book={book[0]}
               onDelete={handleDeleteBook}
             />
           ))}

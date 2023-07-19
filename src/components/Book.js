@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const Book = ({
-  id, title, author, category, onDelete,
-}) => {
+const Book = ({ id, book, onDelete }) => {
+  const { category, title, author } = book;
+
   const handleDelete = () => {
     onDelete(id);
   };
