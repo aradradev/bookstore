@@ -1,11 +1,12 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const Book = ({ id, book, onDelete }) => {
+const Book = ({ book, onDelete }) => {
   const { category, title, author } = book;
 
   const handleDelete = () => {
-    onDelete(id);
+    onDelete(book.item_id);
   };
   return (
     <div className="row">

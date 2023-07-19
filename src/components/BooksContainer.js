@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable camelcase */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,13 +21,13 @@ const BooksContainer = () => {
     dispatch(getBooksItems());
   }, [dispatch]);
 
-  const handleDeleteBook = (item_id) => {
+  const handleDeleteBook = async (item_id) => {
     dispatch(removeBook(item_id));
   };
 
   const handleAddBook = (title, author, category) => {
     const newBook = {
-      item_id: `item${Date.now()}`,
+      // item_id: `item${Date.now()}`,
       title,
       author,
       category,

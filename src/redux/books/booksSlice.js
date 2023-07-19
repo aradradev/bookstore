@@ -56,12 +56,13 @@ const booksSlice = createSlice({
   initialState,
   reducers: {
     addBook: (state, action) => {
-      state.books = [...state.books, action.payload];
+      state.books.push(action.payload);
     },
+
     removeBook: (state, action) => {
-      state.books = state.books.filter(
-        (book) => book.item_id !== action.payload,
-      );
+      const removeBookId = action.payload;
+
+      state.books = state.books.filter((book) => book.item_id !== removeBookId);
     },
   },
 
@@ -85,11 +86,20 @@ const booksSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(addBook.fulfilled, (state, action) => {
-        state.books.push(action.payload);
+        const newBookId = action.meta.arg.item_id;
+        state.books[newBookId] = [
+          {
+            title: action.meta.arg.title,
+            author: action.meta.arg.author,
+            category: action.meta.arg.category,
+          },
+        ];
       })
       .addCase(removeBook.fulfilled, (state, action) => {
+        const removedBookId = action.payload;
+
         state.books = state.books.filter(
-          (book) => book.item_id !== action.payload,
+          (book) => book.item_id !== removedBookId,
         );
       });
   },
