@@ -5,7 +5,7 @@ Variables
 */
 
 :root {
-  --medium-blue:#307bbe;
+  --medium-blue: #307bbe;
   --azure: #0290ff;
   --black-Two: #121212;
   --clr-primary: #645cff;
@@ -116,14 +116,14 @@ p {
     line-height: 1;
   }
 
-  .formSubmit{
-  max-width: 90%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: center;
-  gap: 1rem;
-  margin: 1rem;
-}
+  .formSubmit {
+    max-width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem;
+  }
 }
 
 
@@ -134,7 +134,6 @@ p {
   text-transform: uppercase;
   background: var(--clr-primary);
   color: var(--clr-white);
-  padding: 0.375rem 0.75rem;
   letter-spacing: var(--spacing);
   display: inline-block;
   font-weight: 700;
@@ -143,6 +142,8 @@ p {
   border: none;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  padding: 0.4rem 1rem;
+  margin: 0.7rem;
 }
 
 .btn:hover {
@@ -271,7 +272,7 @@ button {
   padding: 0.22rem;
 }
 
-.cols-m2{
+.cols-m2 {
   display: flex;
   flex-direction: row;
   margin: 0 0.8rem;
@@ -280,18 +281,19 @@ button {
   align-items: center;
 }
 
-.cols-m2 p{
+.cols-m2 p {
   color: #ccc;
   letter-spacing: var(--spacing);
 }
 
-.formSubmit{
+.formSubmit {
   max-width: 100%;
   display: grid;
   align-items: center;
 }
 
-.formSubmit input,.formSubmit select, .btn{
+.formSubmit input,
+.formSubmit select {
   padding: 0.4rem 1rem;
   margin: 0.7rem;
 }

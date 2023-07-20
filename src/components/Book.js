@@ -9,8 +9,8 @@ const Book = ({ id, book, onDelete }) => {
   const {
     category, title, author,
   } = book;
-  const progress = book.progress || 0;
-  const currentChapter = book.currentChapter || 'Chapter 0';
+  const progress = book.progress || 64;
+  const currentChapter = book.currentChapter || 'Chapter 17';
 
   const handleDelete = (e) => {
     const { id } = e.target.dataset;
