@@ -8,13 +8,13 @@ const Navigation = () => (
       <h3 className="title">Bookstore CMS</h3>
       <ul className="listItems">
         <li>
-          <Link style={{ textDecoration: 'none', color: '#121212' }} to="/">
+          <Link style={{ textDecoration: 'none', color: '#fff' }} to="/">
             Books
           </Link>
         </li>
         <li>
           <Link
-            style={{ textDecoration: 'none', color: '#121212' }}
+            style={{ textDecoration: 'none', color: '#fff' }}
             to="/categories"
           >
             Categories

@@ -5,6 +5,7 @@ Variables
 */
 
 :root {
+  --medium-blue:#307bbe;
   --azure: #0290ff;
   --black-Two: #121212;
   --clr-primary: #645cff;
@@ -114,7 +115,18 @@ p {
   h4 {
     line-height: 1;
   }
+
+  .formSubmit{
+  max-width: 90%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
 }
+}
+
+
 
 /* more global css */
 
@@ -170,10 +182,11 @@ p {
 nav {
   background: var(--clr-primary);
   padding: 1.25rem 2rem;
+  cursor: pointer;
+  width: 100%;
 }
 
 .nav-center {
-  max-width: var(--fixed-width);
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -256,4 +269,29 @@ nav svg {
 
 button {
   padding: 0.22rem;
+}
+
+.cols-m2{
+  display: flex;
+  flex-direction: row;
+  margin: 0 0.8rem;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.cols-m2 p{
+  color: #ccc;
+  letter-spacing: var(--spacing);
+}
+
+.formSubmit{
+  max-width: 100%;
+  display: grid;
+  align-items: center;
+}
+
+.formSubmit input,.formSubmit select, .btn{
+  padding: 0.4rem 1rem;
+  margin: 0.7rem;
 }

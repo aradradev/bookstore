@@ -34,6 +34,8 @@ export const addBook = createAsyncThunk(
         title: book.title,
         author: book.author,
         category: book.category,
+        progress: Math.floor(Math.random() * 100) + 1,
+        currentChapter: `Chapter ${Math.floor(Math.random() * 30) + 1}`,
       };
       const res = await axios.post(`${url}`, newBook, {
         'Content-Type': 'application/json',
@@ -81,7 +83,7 @@ const booksSlice = createSlice({
       })
       .addCase(addBook.fulfilled, (state, action) => {
         const newBook = action.payload;
-        state.books.push(newBook);
+        state.books = state.books.push(newBook);
       })
       .addCase(removeBook.fulfilled, (state, action) => {
         delete state.books[action.meta.arg];

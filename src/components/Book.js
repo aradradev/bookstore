@@ -1,13 +1,19 @@
 /* eslint-disable camelcase */
 /* eslint-disable react/prop-types */
+/* eslint-disable import/no-extraneous-dependencies */
+
 import React from 'react';
+import { Button, CircularProgress } from '@mui/joy';
 
 const Book = ({ id, book, onDelete }) => {
-  const { category, title, author } = book;
+  const {
+    category, title, author,
+  } = book;
+  const progress = book.progress || 0;
+  const currentChapter = book.currentChapter || 'Chapter 0';
 
   const handleDelete = (e) => {
     const { id } = e.target.dataset;
-    console.log(id);
     onDelete(id);
   };
 
@@ -33,16 +39,22 @@ const Book = ({ id, book, onDelete }) => {
         </button>
       </div>
       <div className="cols-m2">
-        <div className="circle"> </div>
-        <p>64%</p>
-        <p>Completed</p>
+        <CircularProgress
+          determinate
+          value={progress}
+          sx={{
+            '--CircularProgress-size': '4.6rem',
+          }}
+        />
+        <div>
+          <p style={{ fontWeight: 'bold' }}>{`${progress}%`}</p>
+          <p>Completed</p>
+        </div>
       </div>
       <div className="cols-m3">
-        <p>Current Chapter</p>
-        <p>Chapter 17</p>
-        <button className="btn" type="button">
-          Update Progress
-        </button>
+        <p style={{ fontWeight: 'bold' }}>Current Chapter</p>
+        <p>{currentChapter}</p>
+        <Button variant="solid">Update progress</Button>
       </div>
     </div>
   );
