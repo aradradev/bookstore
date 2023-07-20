@@ -1,8 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable camelcase */
 /* eslint-disable no-useless-catch */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
   books: [],
@@ -24,16 +25,25 @@ export const getBooksItems = createAsyncThunk(
   },
 );
 
-export const addBook = createAsyncThunk('books/addBook', async (book) => {
-  try {
-    const res = await axios.post(`${url}`, book, {
-      'Content-Type': 'application/json',
-    });
-    return res.data;
-  } catch (error) {
-    return error;
-  }
-});
+export const addBook = createAsyncThunk(
+  'books/addBook',
+  async (book, thunkAPI) => {
+    try {
+      const newBook = {
+        item_id: uuidv4(),
+        title: book.title,
+        author: book.author,
+        category: book.category,
+      };
+      const res = await axios.post(`${url}`, newBook, {
+        'Content-Type': 'application/json',
+      });
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
 
 export const selectBooks = (state) => state.books.books;
 
@@ -41,12 +51,12 @@ export const selectIsLoading = (state) => state.books.isLoading;
 
 export const removeBook = createAsyncThunk(
   'books/removeBook',
-  async (item_id) => {
+  async (item_id, thunkAPI) => {
     try {
       await axios.delete(`${url}/${item_id}`);
       return item_id;
     } catch (error) {
-      return error;
+      return thunkAPI.rejectWithValue(error);
     }
   },
 );
@@ -54,17 +64,7 @@ export const removeBook = createAsyncThunk(
 const booksSlice = createSlice({
   name: 'book',
   initialState,
-  reducers: {
-    addBook: (state, action) => {
-      state.books.push(action.payload);
-    },
-
-    removeBook: (state, action) => {
-      const removeBookId = action.payload;
-
-      state.books = state.books.filter((book) => book.item_id !== removeBookId);
-    },
-  },
+  reducers: {},
 
   extraReducers: (builder) => {
     builder
@@ -73,37 +73,20 @@ const booksSlice = createSlice({
       })
       .addCase(getBooksItems.fulfilled, (state, action) => {
         state.isLoading = false;
-        const data = action.payload || [];
-        if (Array.isArray(data)) {
-          state.books = data;
-        } else if (typeof data === 'object') {
-          state.books = Object.values(data);
-        } else {
-          state.books = [];
-        }
+        const data = action.payload || {};
+        state.books = data;
       })
       .addCase(getBooksItems.rejected, (state) => {
         state.isLoading = false;
       })
       .addCase(addBook.fulfilled, (state, action) => {
-        const newBookId = action.meta.arg.item_id;
-        state.books[newBookId] = [
-          {
-            title: action.meta.arg.title,
-            author: action.meta.arg.author,
-            category: action.meta.arg.category,
-          },
-        ];
+        const newBook = action.payload;
+        state.books.push(newBook);
       })
       .addCase(removeBook.fulfilled, (state, action) => {
-        const removedBookId = action.payload;
-
-        state.books = state.books.filter(
-          (book) => book.item_id !== removedBookId,
-        );
+        delete state.books[action.meta.arg];
       });
   },
 });
-// export const { addBook, removeBook } = booksSlice.actions;
 
 export default booksSlice.reducer;
