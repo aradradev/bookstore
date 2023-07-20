@@ -9,8 +9,17 @@ const Book = ({ id, book, onDelete }) => {
   const {
     category, title, author,
   } = book;
-  const progress = book.progress || 64;
-  const currentChapter = book.currentChapter || 'Chapter 17';
+  const progress = [
+    {
+      value: Math.floor(Math.random() * 100) + 1 || 64,
+    },
+  ];
+
+  const currentChapter = [
+    {
+      value: Math.floor(Math.random() * 30) + 1 || 'Chapter 17',
+    },
+  ];
 
   const handleDelete = (e) => {
     const { id } = e.target.dataset;
@@ -41,19 +50,23 @@ const Book = ({ id, book, onDelete }) => {
       <div className="cols-m2">
         <CircularProgress
           determinate
-          value={progress}
+          value={progress[0].value}
           sx={{
             '--CircularProgress-size': '4.6rem',
           }}
         />
         <div>
-          <p style={{ fontWeight: 'bold' }}>{`${progress}%`}</p>
+          <p
+            style={{ fontWeight: 'bold', color: '#000' }}
+          >
+            {`${progress[0].value}%`}
+          </p>
           <p>Completed</p>
         </div>
       </div>
       <div className="cols-m3">
-        <p style={{ fontWeight: 'bold' }}>Current Chapter</p>
-        <p>{currentChapter}</p>
+        <p style={{ fontWeight: 'bold', color: '#000' }}>Current Chapter</p>
+        <p>{`Chapter ${currentChapter[0].value}`}</p>
         <Button variant="solid">Update progress</Button>
       </div>
     </div>

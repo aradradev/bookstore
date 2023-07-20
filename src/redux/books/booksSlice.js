@@ -83,7 +83,11 @@ const booksSlice = createSlice({
       })
       .addCase(addBook.fulfilled, (state, action) => {
         const newBook = action.payload;
-        state.books = state.books.push(newBook);
+        const newBookEntry = {
+          [newBook.item_id]: [newBook],
+        };
+
+        state.books = { ...state.books, ...newBookEntry };
       })
       .addCase(removeBook.fulfilled, (state, action) => {
         delete state.books[action.meta.arg];

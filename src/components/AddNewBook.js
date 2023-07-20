@@ -36,6 +36,7 @@ function AddNewBook() {
     <div className="form-input">
       <h3>Add new Book</h3>
       <form className="formSubmit" onSubmit={handleSubmit}>
+
         <input
           type="text"
           placeholder="Book title"

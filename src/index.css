@@ -293,7 +293,7 @@ button {
 }
 
 .formSubmit input,
-.formSubmit select {
+.formSubmit select, .form-input h3  {
   padding: 0.4rem 1rem;
   margin: 0.7rem;
 }
