@@ -3,6 +3,7 @@
 <div align="center">
   <br/>
   <h3><b>BookStore</b></h3>
+  <img src='./src/img1.jpeg'/>
 
 </div>
 
