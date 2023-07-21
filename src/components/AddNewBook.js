@@ -1,7 +1,13 @@
+/* eslint-disable import/order */
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addBook } from '../redux/books/booksSlice';
+import { v4 as uuidv4 } from 'uuid';
 
 // eslint-disable-next-line react/prop-types
-function AddNewBook({ onAdd }) {
+function AddNewBook() {
+  const dispatch = useDispatch();
   const categories = ['Category', 'Economy', 'Action', 'Science Fiction'];
 
   const [category, setCategory] = useState('Category');
@@ -14,7 +20,13 @@ function AddNewBook({ onAdd }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title.trim() !== '' && author.trim() !== '') {
-      onAdd(title, author, category);
+      const newBook = {
+        item_id: uuidv4(),
+        title,
+        author,
+        category,
+      };
+      dispatch(addBook(newBook));
       setTitle('');
       setAuthor('');
     }

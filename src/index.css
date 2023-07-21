@@ -249,6 +249,11 @@ nav svg {
   margin-bottom: 1rem;
 }
 
+.loading {
+  text-align: center;
+  margin-top: 5rem;
+}
+
 button {
   padding: 0.22rem;
 }

@@ -1,12 +1,16 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const Book = ({
-  id, title, author, category, onDelete,
-}) => {
-  const handleDelete = () => {
+const Book = ({ id, book, onDelete }) => {
+  const { category, title, author } = book;
+
+  const handleDelete = (e) => {
+    const { id } = e.target.dataset;
+    console.log(id);
     onDelete(id);
   };
+
   return (
     <div className="row">
       <div className="cols-m1">
@@ -16,7 +20,12 @@ const Book = ({
         <button className="remove-btn" type="button">
           Comments
         </button>
-        <button className="remove-btn" type="button" onClick={handleDelete}>
+        <button
+          data-id={id}
+          className="remove-btn"
+          type="button"
+          onClick={handleDelete}
+        >
           Remove
         </button>
         <button className="remove-btn" type="button">
