@@ -1,21 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import AddNewBook from './AddNewBook';
 import Book from './Book';
+import { addBook, removeBook } from '../redux/books/booksSlice';
 
 const BooksContainer = () => {
-  const [books, setBooks] = useState([]);
+  const books = useSelector((state) => state.books.books);
+  const dispatch = useDispatch();
 
   const handleDeleteBook = (id) => {
-    setBooks(books.filter((book) => book.id !== id));
+    dispatch(removeBook(id));
   };
 
-  const handleAddBook = (title, category) => {
+  const handleAddBook = (title, author, category) => {
     const newBook = {
-      id: Date.now(),
+      item_id: `item${Date.now()}`,
       title,
+      author,
       category,
     };
-    setBooks((prevBooks) => [...prevBooks, newBook]);
+    dispatch(addBook(newBook));
   };
 
   return (
@@ -24,9 +28,10 @@ const BooksContainer = () => {
         <div className="book-container">
           {books.map((book) => (
             <Book
-              key={book.id}
-              id={book.id}
+              key={book.item_id}
+              id={book.item_id}
               title={book.title}
+              author={book.author}
               category={book.category}
               onDelete={handleDeleteBook}
             />

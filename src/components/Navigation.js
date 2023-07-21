@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import User from '../icons/icons';
 
 const Navigation = () => (
   <>
-    <nav className="navLinks">
+    <nav className="nav-center">
       <h3 className="title">Bookstore CMS</h3>
       <ul className="listItems">
         <li>
@@ -20,7 +21,9 @@ const Navigation = () => (
           </Link>
         </li>
       </ul>
-      <div className="mask">logo</div>
+      <div>
+        <User />
+      </div>
     </nav>
   </>
 );
