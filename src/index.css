@@ -1,63 +1,77 @@
-body {
+:root {
+  --azure: #0290ff;
+  --black-Two: #121212;
+}
+* {
   margin: 0;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f5f5f5;
+  padding: 0.8rem;
 }
 
-code {
-  font-family:
-    source-code-pro,
-    Menlo,
-    Monaco,
-    Consolas,
-    'Courier New',
-    monospace;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  background-color: #fff;
+  margin: 1rem auto;
+}
+.navLinks {
+  display: flex;
+  align-items: center;
+  padding: 0.9rem;
+  flex-direction: row;
 }
 
-.Bookstore-CMS {
-  width: 100rem;
-  height: 89.625rem;
-  padding: 9.313rem 3.75rem 7.688rem 6.25rem;
-  background-color: var(--pale-grey);
+.navLinks h3 {
+  font-size: 1.5rem;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  color: var(--azure);
 }
 
-.panel-bg {
-  width: 87.5rem;
-  height: 5.938rem;
-  margin: 0 0 2.375rem;
-  padding: 1.438rem 6.188rem 1.688rem 6.25rem;
-  background-color: var(--white-two);
+.listItems {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
 }
 
-.BOOKS {
-  width: 3.688rem;
-  height: 1rem;
-  margin: 1.125rem 2.563rem 0.688rem 0;
-  font-size: 0.813rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
+.listItems li {
+  list-style-type: none;
+  margin: 0 0.8rem;
   letter-spacing: 1.9px;
-  color: var(--black-two);
 }
 
-.Oval {
-  width: 2.813rem;
-  height: 2.813rem;
-  margin: 0 0 0 41.5rem;
-  padding: 0.875rem;
-  border: solid 1px var(--white-three);
+.mask {
+  background-color: var(--azure);
+  text-align: right;
+  float: right;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  padding: 0.9rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 2px 3px 2px #f5f5f5;
+}
+
+button {
+  color: var(--black-Two);
+  background-color: var(--azure);
+  border: none;
+  outline: none;
+  padding: 0.2rem 0.4rem;
 }
