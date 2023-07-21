@@ -32,20 +32,25 @@ const Book = ({ id, book, onDelete }) => {
         <p>{category}</p>
         <h3>{title}</h3>
         <p className="remove-btn">{author}</p>
-        <button className="remove-btn" type="button">
-          Comments
-        </button>
-        <button
-          data-id={id}
-          className="remove-btn"
-          type="button"
-          onClick={handleDelete}
-        >
-          Remove
-        </button>
-        <button className="remove-btn" type="button">
-          Edit
-        </button>
+        <div className="btnContainer">
+          <button className="remove-btn" type="button">
+            Comments
+          </button>
+          <div className="Line-2" />
+          <button
+            data-id={id}
+            className="remove-btn"
+            type="button"
+            onClick={handleDelete}
+          >
+            Remove
+          </button>
+          <div className="Line-2" />
+          <button className="remove-btn" type="button">
+            Edit
+          </button>
+          <div className="Line-2" />
+        </div>
       </div>
       <div className="cols-m2">
         <CircularProgress
@@ -66,7 +71,7 @@ const Book = ({ id, book, onDelete }) => {
       </div>
       <div className="cols-m3">
         <p style={{ fontWeight: 'bold', color: '#000' }}>Current Chapter</p>
-        <p>{`Chapter ${currentChapter[0].value}`}</p>
+        <p style={{ marginBottom: '1rem' }}>{`Chapter ${currentChapter[0].value}`}</p>
         <Button variant="solid">Update progress</Button>
       </div>
     </div>
