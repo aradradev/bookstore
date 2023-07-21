@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto+Slab:wght@300;500;600&display=swap');
-
 /*
 ===============
 Variables
@@ -7,8 +5,6 @@ Variables
 */
 
 :root {
-  --pale-gray: #f5f6fa;
-  --medium-blue: #307bbe;
   --azure: #0290ff;
   --black-Two: #121212;
   --clr-primary: #645cff;
@@ -32,8 +28,6 @@ Variables
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  font-family: 'Roboto Slab', serif;
 }
 
 body {
@@ -44,7 +38,6 @@ body {
     Roboto,
     Oxygen,
     Ubuntu,
-    RobotoSlab,
     Cantarell,
     'Open Sans',
     'Helvetica Neue',
@@ -69,18 +62,30 @@ h1,
 h2,
 h3,
 h4 {
+  letter-spacing: var(--spacing);
   text-transform: capitalize;
   line-height: 1.25;
   margin-bottom: 0.75rem;
-  font-size: 1.375rem;
-  letter-spacing: 0.2px;
-  font-family: 'Roboto Slab', serif;
-  color: #121212;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 0.875rem;
 }
 
 p {
-  color: #858181;
-  font-weight: bold;
+  margin-bottom: 1.25rem;
 }
 
 @media screen and (min-width: 765px) {
@@ -126,9 +131,13 @@ p {
   }
 }
 
+/* more global css */
+
 .btn {
   text-transform: uppercase;
+  background: var(--clr-primary);
   color: var(--clr-white);
+  padding: 0.375rem 0.75rem;
   letter-spacing: var(--spacing);
   display: inline-block;
   font-weight: 700;
@@ -137,10 +146,6 @@ p {
   border: none;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  margin: 1.188rem 0 0 2.125rem;
-  padding: 0.801rem 1.188rem 0.886rem 1.375rem;
-  border-radius: 3px;
-  background-color: var(--azure);
 }
 
 .btn:hover {
@@ -149,19 +154,24 @@ p {
 }
 
 .remove-btn {
-  color: #4386bf;
+  color: var(--clr-primary);
+  letter-spacing: var(--spacing);
   cursor: pointer;
   font-size: 0.85rem;
   background: transparent;
   border: none;
   margin-top: 0.375rem;
-  font-weight: 300;
   transition: var(--transition);
 }
 
 .remove-btn:hover {
   color: var(--clr-primary-light);
 }
+
+/* body {
+  background-color: #f5f5f5;
+  padding: 0.8rem;
+} */
 
 .container {
   display: flex;
@@ -173,16 +183,12 @@ p {
 }
 
 nav {
-  background: var(--clr-white);
+  background: var(--clr-primary);
   padding: 1.25rem 2rem;
-  cursor: pointer;
-  width: 100%;
-  border: 1px solid #fff;
-  box-shadow: 3px 3px 3px #f1f5f8;
-  font-family: 'Roboto Slab', serif;
 }
 
 .nav-center {
+
   min-width: 100%;
   margin: 0 auto;
   display: flex;
@@ -193,7 +199,7 @@ nav {
 nav h3 {
   margin-bottom: 0;
   letter-spacing: 1px;
-  color: var(--azure);
+  color: var(--clr-white);
 }
 
 .nav-container {
@@ -202,8 +208,8 @@ nav h3 {
 }
 
 nav svg {
-  width: 36px;
-  color: var(--azure);
+  width: 40px;
+  color: var(--clr-white);
 }
 
 .navLinks {
@@ -266,6 +272,7 @@ nav svg {
 button {
   padding: 0.22rem;
 }
+
 
 .cols-m2 {
   display: flex;
