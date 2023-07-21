@@ -3,7 +3,6 @@
 <div align="center">
   <br/>
   <h3><b>BookStore</b></h3>
-  <img src='./src/img1.jpeg'/>
 
 </div>
 
@@ -32,6 +31,9 @@
 # 📖 [Book Store] <a name="about-project"></a>
 
 **Books Store** is a simple website that displays a list of books and allows you to add and remove books from that list.
+
+  <img src='./src/img1.jpeg'/>
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
