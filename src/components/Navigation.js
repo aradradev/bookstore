@@ -14,7 +14,7 @@ const Navigation = () => (
         </li>
         <li>
           <Link
-            style={{ textDecoration: 'none', color: '#121212' }}
+            style={{ textDecoration: 'none', color: '#121212', opacity: '0.7' }}
             to="/categories"
           >
             Categories
