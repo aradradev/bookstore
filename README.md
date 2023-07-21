@@ -61,7 +61,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](Coming soon)
+- [Live Demo Link](https://bookstore-cms-jalloh.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
