@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
-function AddNewBook() {
+// eslint-disable-next-line react/prop-types
+function AddNewBook({ onAdd }) {
   const categories = ['Category', 'Economy', 'Action', 'Science Fiction'];
+
   const [category, setCategory] = useState('Category');
   const [title, setTitle] = useState('');
   const handleCategory = (e) => {
@@ -9,32 +11,35 @@ function AddNewBook() {
   };
 
   const handleSubmit = (e) => {
-    const newBook = e.target.value;
-    setTitle(newBook);
+    e.preventDefault();
+    if (title.trim() !== '') {
+      onAdd(title, category);
+      setTitle('');
+    }
   };
 
   return (
     <div className="form-input">
       <h1>Add new Book</h1>
-      <input
-        type="text"
-        placeholder="Book title"
-        value={title}
-        onChange={handleSubmit}
-      />
-      <select
-        name="category"
-        id="category"
-        value={category}
-        onChange={handleCategory}
-      >
-        {categories.map((category) => (
-          <option key={category}>{category}</option>
-        ))}
-      </select>
-      <button type="button" onSubmit={(e) => setTitle(e.target.value)}>
-        Add Book
-      </button>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Book title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <select
+          name="category"
+          id="category"
+          value={category}
+          onChange={handleCategory}
+        >
+          {categories.map((category) => (
+            <option key={category}>{category}</option>
+          ))}
+        </select>
+        <button type="button">Add Book</button>
+      </form>
     </div>
   );
 }

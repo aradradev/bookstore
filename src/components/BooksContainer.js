@@ -1,32 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AddNewBook from './AddNewBook';
+import Book from './Book';
 
-const BooksContainer = () => (
-  <div className="booksContainer">
-    <div className="rows">
-      <div className="row">
-        <div className="cols-m1">
-          <p>Action</p>
-          <h3>The Hunger Game</h3>
-          <p>Author</p>
-          <button type="button">Comments</button>
-          <button type="button">Remove</button>
-          <button type="button">Edit</button>
-        </div>
-        <div className="cols-m2">
-          <div className="circle"> </div>
-          <p>64%</p>
-          <p>Completed</p>
-        </div>
-        <div className="cols-m3">
-          <p>Current Chapter</p>
-          <p>Chapter 17</p>
-          <button type="button">Update progress</button>
+const BooksContainer = () => {
+  const [books, setBooks] = useState([]);
+
+  const handleDeleteBook = (id) => {
+    setBooks(books.filter((book) => book.id !== id));
+  };
+
+  const handleAddBook = (title, category) => {
+    const newBook = {
+      id: Date.now(),
+      title,
+      category,
+    };
+    setBooks((prevBooks) => [...prevBooks, newBook]);
+  };
+
+  return (
+    <div className="booksContainer">
+      <div className="rows">
+        <div className="book-container">
+          {books.map((book) => (
+            <Book
+              key={book.id}
+              id={book.id}
+              title={book.title}
+              category={book.category}
+              onDelete={handleDeleteBook}
+            />
+          ))}
         </div>
       </div>
-    </div>
 
-    <AddNewBook />
-  </div>
-);
+      <AddNewBook onAdd={handleAddBook} />
+    </div>
+  );
+};
 export default BooksContainer;
