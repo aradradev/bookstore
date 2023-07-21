@@ -46,6 +46,7 @@ body {
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
+  min-height: 100vh;
 }
 
 a {
@@ -87,7 +88,7 @@ p {
   margin-bottom: 1.25rem;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 765px) {
   h1 {
     font-size: 4rem;
   }
@@ -113,6 +114,20 @@ p {
   h3,
   h4 {
     line-height: 1;
+  }
+
+  .formSubmit {
+    max-width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem;
+  }
+
+  .row {
+    justify-content: space-between;
+    flex-direction: row;
   }
 }
 
@@ -173,8 +188,8 @@ nav {
 }
 
 .nav-center {
-  max-width: var(--fixed-width);
-  width: 100%;
+
+  min-width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -230,20 +245,20 @@ nav svg {
 }
 
 .book-container {
+  min-width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .rows {
   display: flex;
-  flex-direction: column;
   margin: 0.5rem;
+  flex-direction: row;
 }
 
 .row {
   display: flex;
   padding: 0.9rem;
-  justify-content: space-between;
   align-items: center;
   box-shadow: 2px 3px 2px #f5f5f5;
   margin-bottom: 1rem;
@@ -256,4 +271,70 @@ nav svg {
 
 button {
   padding: 0.22rem;
+}
+
+
+.cols-m2 {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0.8rem;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.formSubmit {
+  max-width: 100%;
+  display: grid;
+  align-items: baseline;
+}
+
+.formSubmit input,
+.formSubmit select,
+.form-input h3 {
+  padding: 0.4rem 1rem;
+  margin: 0.7rem;
+}
+
+.form-input input {
+  outline: none;
+}
+
+.form-input h3 {
+  width: 10.875rem;
+  height: 1.5rem;
+  margin: 1.813rem 32.75rem 1.188rem 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.18px;
+  color: #888;
+}
+
+.Line-2 {
+  width: 0.125rem;
+  height: 1.5rem;
+  background-color: #e8e8e8;
+  margin: 0 1rem;
+}
+
+.btnContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    min-width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+    justify-items: center;
+    text-align: center;
+    gap: 1.2rem;
+  }
 }
