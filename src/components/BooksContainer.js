@@ -14,8 +14,6 @@ import {
   selectBooks,
   selectIsLoading,
 } from '../redux/books/booksSlice';
-// eslint-disable-next-line import/order
-import { CircularProgress } from '@mui/joy';
 
 const BooksContainer = () => {
   const books = useSelector(selectBooks);
@@ -31,15 +29,11 @@ const BooksContainer = () => {
   };
 
   const handleAddBook = (title, author, category) => {
-    const progress = Math.floor(Math.random() * 100) + 1;
-    const currentChapter = `Chapter ${Math.floor(Math.random() * 30) + 1}`;
     const newBook = {
       item_id: `item${uuidv4()}`,
       title,
       author,
       category,
-      progress,
-      currentChapter,
     };
     dispatch(addBook(newBook));
   };
@@ -47,7 +41,7 @@ const BooksContainer = () => {
   if (isLoading) {
     return (
       <div className="loading">
-        <h3><CircularProgress size="lg" /></h3>
+        <h3>Loading...</h3>
       </div>
     );
   }

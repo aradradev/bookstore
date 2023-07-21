@@ -35,8 +35,7 @@ function AddNewBook() {
   return (
     <div className="form-input">
       <h3>Add new Book</h3>
-      <form className="formSubmit" onSubmit={handleSubmit}>
-
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Book title"
@@ -59,7 +58,7 @@ function AddNewBook() {
             <option key={category}>{category}</option>
           ))}
         </select>
-        <button type="submit" className="btn">Add Book</button>
+        <button type="submit">Add Book</button>
       </form>
     </div>
   );
