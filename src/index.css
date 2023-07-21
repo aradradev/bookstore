@@ -53,6 +53,7 @@ body {
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
+  min-height: 100vh;
 }
 
 a {
@@ -82,7 +83,7 @@ p {
   font-weight: bold;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 765px) {
   h1 {
     font-size: 4rem;
   }
@@ -117,6 +118,11 @@ p {
     align-items: center;
     gap: 1rem;
     margin: 1rem;
+  }
+
+  .row {
+    justify-content: space-between;
+    flex-direction: row;
   }
 }
 
@@ -177,7 +183,7 @@ nav {
 }
 
 .nav-center {
-  width: 100%;
+  min-width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -233,20 +239,20 @@ nav svg {
 }
 
 .book-container {
+  min-width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .rows {
   display: flex;
-  flex-direction: column;
   margin: 0.5rem;
+  flex-direction: row;
 }
 
 .row {
   display: flex;
   padding: 0.9rem;
-  justify-content: space-between;
   align-items: center;
   box-shadow: 2px 3px 2px #f5f5f5;
   margin-bottom: 1rem;
@@ -311,4 +317,17 @@ button {
   display: flex;
   align-items: center;
   flex-direction: row;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    min-width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+    justify-items: center;
+    text-align: center;
+    gap: 1.2rem;
+  }
 }
