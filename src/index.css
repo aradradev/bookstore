@@ -33,7 +33,6 @@ Variables
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-  font-family: 'Roboto Slab', serif;
 }
 
 body {
@@ -322,6 +321,12 @@ button {
 @media screen and (max-width: 600px) {
   body {
     min-width: 100%;
+  }
+
+  .container {
+    min-width: 100%;
+    min-height: 100vh;
+    font-size: 0.9rem;
   }
 
   .row {
